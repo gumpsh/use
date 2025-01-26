@@ -1,8 +1,7 @@
 import { useState } from "react";
 import "../index.css";
-import List from "./List";
 
-export default function MovieList({ movies }) {
+export default function MovieList({ children }) {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -10,7 +9,7 @@ export default function MovieList({ movies }) {
       <button className="btn-toggle" onClick={() => setIsOpen((open) => !open)}>
         {isOpen ? "–" : "+"}
       </button>
-      {isOpen && <List list={movies} />}
+      {isOpen && children}
     </div>
   );
 }

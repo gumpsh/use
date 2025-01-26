@@ -1,6 +1,13 @@
 import { useState } from "react";
+import List from "./components/List";
+import Logo from "./components/Logo";
 import Main from "./components/Main";
+import MovieList from "./components/MovieList";
 import NavBar from "./components/NavBar";
+import NumResults from "./components/NumResults";
+import Search from "./components/Search";
+import Summary from "./components/Summary";
+import WatchedList from "./components/WatchedList";
 
 const tempMovieData = [
   {
@@ -53,8 +60,20 @@ export default function App() {
 
   return (
     <>
-      <NavBar movies={movies} />
-      <Main movies={movies} watched={watched} />
+      <NavBar>
+        <Logo logo="🍿" title={"usePopcorn"} />
+        <Search />
+        <NumResults numResults={movies.length} />
+      </NavBar>
+      <Main>
+        <MovieList>
+          <List list={movies} />
+        </MovieList>
+        <WatchedList>
+          <Summary watched={watched} />
+          <List list={watched} />
+        </WatchedList>
+      </Main>
     </>
   );
 }

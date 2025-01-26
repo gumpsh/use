@@ -1,9 +1,7 @@
 import { useState } from "react";
 import "../index.css";
-import List from "./List";
-import Summary from "./Summary";
 
-export default function WatchedList({ watched }) {
+export default function WatchedList({ children }) {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -11,12 +9,7 @@ export default function WatchedList({ watched }) {
       <button className="btn-toggle" onClick={() => setIsOpen((open) => !open)}>
         {isOpen ? "–" : "+"}
       </button>
-      {isOpen && (
-        <>
-          <Summary watched={watched} />
-          <List list={watched} />
-        </>
-      )}
+      {isOpen && children}
     </div>
   );
 }
