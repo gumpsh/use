@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../index.css";
 
-export default function MovieList({ children }) {
+export default function ListBox({ children }) {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
